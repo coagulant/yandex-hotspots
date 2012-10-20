@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Django-hotspots</title>
+    <script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU" type="text/javascript"></script>
+    <script type="text/javascript">
+        ymaps.ready(function () {
+
+            // Url to your hotspots "base_path"
+            var media_url = '{{ MEDIA_URL }}';
+
+            var map = new ymaps.Map("YMapsID", {
+                        center: [56.837992, 60.597223],
+                        zoom: 12,
+                        behaviors: ["default", "scrollZoom"]
+                    }
+            );
+
+            var imageLayer = new ymaps.Layer(media_url+'hotspots/png/%z/tile-%x-%y.png', {tileTransparent: true});
+            map.layers.add(imageLayer);
+
+            var hotspotObjectSource = new ymaps.hotspot.ObjectSource(media_url+'hotspots/js/%z/tile-%x-%y.js'),
+            hotspotLayer = new ymaps.hotspot.Layer(hotspotObjectSource);
+            hotspotObjectSource.getKey = function () {return 'hotspot_callback'};
+
+            map.layers.add(hotspotLayer);
+        });
+    </script>
+</head>
+<body>
+<h1><a href="http://api.yandex.ru/maps/features/hotspots/">Yandex Maps</a></h1>
+<div id="YMapsID" style="height:600px"></div>
+</body>
+</html>
