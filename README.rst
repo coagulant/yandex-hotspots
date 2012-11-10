@@ -5,8 +5,9 @@ Python library to generate tiles and js for `Yandex Maps Hotspots`_ version 2.
 Beware, hotspots js api is not documented well. Use at your own risk.
 Works on python 2.6-2.7.
 
-It's a fork of django-hotspots_ written by Koltyshev Paul.
-Written to support new version of API and django free.
+It's a fork of an app by Paul Koltyshev, called django-hotspots_.
+`yandex-hotspots` is written to support new version of hotspots API and
+*primarily* to be django-free package.
 
 Usage
 =====
@@ -50,4 +51,4 @@ And finally put together created hotspots and `some clientside`_.
 
 .. _django-hotspots: https://github.com/pkolt/django-hotspots
 .. _Yandex Maps Hotspots: http://api.yandex.ru/maps/features/?p=hotspot
-.. _some clientside: https://github.com/coagulant/yandex-maps/blob/master/example/hotspots.html
+.. _some clientside: https://github.com/coagulant/yandex-hotspots/blob/master/example/hotspots.html
