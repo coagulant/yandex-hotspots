@@ -9,6 +9,8 @@ It's a fork of an app by Paul Koltyshev, called django-hotspots_.
 `yandex-hotspots` is written to support new version of hotspots API and
 *primarily* to be django-free package.
 
+This lib supports only simplest of hotspots: points.
+
 Usage
 =====
 
@@ -48,6 +50,12 @@ Run hotspot generator::
 
 
 And finally put together created hotspots and `some clientside`_.
+
+Ballon content and hint
+=======================
+
+Use `gett_descr(self, obj)` and `get_name(self, obj)` respectively.
+
 
 .. _django-hotspots: https://github.com/pkolt/django-hotspots
 .. _Yandex Maps Hotspots: http://api.yandex.ru/maps/features/?p=hotspot

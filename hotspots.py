@@ -115,6 +115,8 @@ class TileVersion2(Tile):
         object_template = u"""{
                 "type": "Feature",
                 "properties": {
+                    "hintContent": "%(name)s",
+                    "balloonContent": "%(description)s",
                     "HotspotMetaData": {
                         "RenderedGeometry": {
                             "type": "Rectangle",
@@ -122,8 +124,7 @@ class TileVersion2(Tile):
                         }
                     }
                 }
-            }
-        """
+            }"""
         loader_template = u"""hotspot_callback({
         "data":{
             "type": "FeatureCollection",
@@ -134,6 +135,8 @@ class TileVersion2(Tile):
         objects = []
         for placemark in self:
             objects.append(object_template % {
+                'description': placemark.data['description'],
+                'name': placemark.data['name'],
                 'x1': placemark.box[0],
                 'y1': placemark.box[1],
                 'x2': placemark.box[2],
